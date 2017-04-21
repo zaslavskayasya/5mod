@@ -4,6 +4,7 @@
 @lightExtra: lighten(@base-color, 80%);
 
 @base_font : 'Roboto', sans-serif;
+@color-effect: 0.1s ease-out 0.1s;
 
 .weather_box {
   max-width: 500px;
@@ -29,9 +30,6 @@
        text-align: -webkit-center;
        color: @lightExtra;
      }
-     #weather_icon {
-
-     }
    }
 }
 .current_info {
@@ -40,8 +38,8 @@
 }
 
 .forecast {
-  display: none;
-
+  opacity: 0;
+  transition: all .3s ease;
 }
 .forecast_block {
   background-color: @base-color;
@@ -53,7 +51,6 @@
     padding: 0px 10px 0px 4px;
 
     li {
-
       margin: 3px;
       padding: 3px 0 3px 0px;
       color: @lightExtra;
@@ -69,8 +66,10 @@
   background-color: @base-color;
   color: @lightExtra;
   margin-bottom: 10px;
+  transition: @color-effect;
 }
 .showHideBtn:hover {
   background-color: @light;
   color: @base-color;
 }
+

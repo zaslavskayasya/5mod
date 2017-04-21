@@ -27,7 +27,8 @@
   padding: 20px;
 }
 .forecast {
-  display: none;
+  opacity: 0;
+  transition: all .3s ease;
 }
 .forecast_block {
   background-color: #7aa3db;
@@ -53,6 +54,7 @@
   background-color: #7aa3db;
   color: #ffffff;
   margin-bottom: 10px;
+  transition: 0.1s ease-out 0.1s;
 }
 .showHideBtn:hover {
   background-color: #cadbf1;

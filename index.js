@@ -1,12 +1,8 @@
-
+(function() {
 navigator.geolocation.getCurrentPosition(function(position) {
     var lat = position.coords.latitude;
     var lon = position.coords.longitude;
 
-   /* var latG = document.getElementById('lat');
-    var lonG= document.getElementById('lon');*/
-
-    var actualWeather = document.getElementById('actual_main');
     var current_info = document.getElementById('current_info');
     var actualWeather_top = document.getElementById('current_header_list');
     var forecast = document.getElementById('forecast');
@@ -14,8 +10,6 @@ navigator.geolocation.getCurrentPosition(function(position) {
     var ul =  document.createElement("ul");
     li.className = "actual_li";
 
-   /* latG.innerHTML = lat;
-    lonG.innerHTML = lon;*/
 
 fetch('http://api.openweathermap.org/data/2.5/weather?lat=' +lat+ '35&lon=' +lon+ '&APPID=10f85ac758b2669f8007875b727e20f8&units=metric&lang=ua' )
     .then(
@@ -25,7 +19,7 @@ fetch('http://api.openweathermap.org/data/2.5/weather?lat=' +lat+ '35&lon=' +lon
                     response.status);
                 return;
             }
-            // Examine the text in the response
+
             response.json().then(function(data) {
 
                 actualWeather_top.insertAdjacentHTML("afterBegin",
@@ -45,20 +39,8 @@ fetch('http://api.openweathermap.org/data/2.5/weather?lat=' +lat+ '35&lon=' +lon
                     + '<span> вiтер: </span>'+
                     + data.wind.speed +
                         'м/с'+
-
-
                     ' </div>'
-             /*   actualWeather_top.innerHTML =  data.name;
 
-                actualWeather.insertAdjacentHTML("afterBegin",
-                    "<li id='li1'></li><li id='li2'></li><li id='li3'></li><li id='li4'></li>");
-
-                document.getElementById('li1').innerHTML = '<span> place : </span>' + data.name;
-                document.getElementById('li2').innerHTML = '<span> Wind : </span>'+ data.wind.speed;
-                document.getElementById('li3').innerHTML = '<span> humidity : </span>' + data.main.humidity;
-                document.getElementById('li4').innerHTML = '<span> speed : </span>'+ data.wind.speed;
-                document.getElementById('li4').innerHTML = '<span> temp : </span>'+ data.main.temp;
-*/
                 console.log(data);
             });
         }
@@ -76,7 +58,6 @@ fetch('http://api.openweathermap.org/data/2.5/weather?lat=' +lat+ '35&lon=' +lon
                     return;
                 }
 
-                // Examine the text in the response
                 response.json().then(function(data) {
                     console.log(data);
 
@@ -92,7 +73,6 @@ fetch('http://api.openweathermap.org/data/2.5/weather?lat=' +lat+ '35&lon=' +lon
 
 
                         var dat = new Date(data.list[i].dt * 1000);
-                        console.log(dat);
                         moment.locale();
                         var parsedDat = moment(dat).format('L');
 
@@ -111,6 +91,9 @@ fetch('http://api.openweathermap.org/data/2.5/weather?lat=' +lat+ '35&lon=' +lon
 
 });
 
+
+})();
+
 function forecastOn() {
 
     var btn = document.getElementById('forecast');
@@ -123,4 +106,4 @@ function forecastOn() {
     toggleStatus.innerHTML=(toggleStatus.innerHTML=='Прогноз')? 'Скрыть': 'Прогноз';
 
 
-}
+};
