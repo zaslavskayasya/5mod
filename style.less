@@ -1,0 +1,76 @@
+@base-color: #7aa3db;
+@light: lighten(@base-color, 20%);
+@light2: lighten(@base-color, 50%);
+@lightExtra: lighten(@base-color, 80%);
+
+@base_font : 'Roboto', sans-serif;
+
+.weather_box {
+  max-width: 500px;
+  font-family: @base_font;
+}
+#actual {
+  text-align: -webkit-center;
+}
+.current_header {
+
+  background-color: @base-color;
+   .current_header_list{
+     margin: 0px;
+     padding-left: 0px;
+     list-style: none;
+     width: 100%;
+     .current_header_item {
+       display: inline-block;
+
+       width: 30%;
+       line-height: 100%;
+       vertical-align: middle;
+       text-align: -webkit-center;
+       color: @lightExtra;
+     }
+     #weather_icon {
+
+     }
+   }
+}
+.current_info {
+  text-align: center;
+  padding: 20px;
+}
+
+.forecast {
+  display: none;
+
+}
+.forecast_block {
+  background-color: @base-color;
+  text-align: center;
+  ul {
+    display: inline-block;
+    list-style: none;
+    text-align: -webkit-center;
+    padding: 0px 10px 0px 4px;
+
+    li {
+
+      margin: 3px;
+      padding: 3px 0 3px 0px;
+      color: @lightExtra;
+    }
+  }
+}
+.showHideBtn {
+  margin: 0 auto;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background-color: @base-color;
+  color: @lightExtra;
+  margin-bottom: 10px;
+}
+.showHideBtn:hover {
+  background-color: @light;
+  color: @base-color;
+}
